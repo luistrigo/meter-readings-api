@@ -21,7 +21,7 @@ getMeterReadingsList = async function (request, reply) {
     }
 
     var queryParams = { offset: offset, limit: limit }
-
+    queryParams.user = request.user;
     const meterReadingsData = await meterReadingsModel.meterReadingsList(queryParams);
     
     var response = {page: page, per_page: limit, readings:meterReadingsData[0]}
